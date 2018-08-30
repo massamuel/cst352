@@ -1,0 +1,57 @@
+body {
+    background-color: black;
+    color: white;
+}
+header, main, nav, footer {
+    text-align: center;
+}
+main {
+    min-width: 100%;
+    
+}
+nav a {
+    padding: 15px;
+    padding-bottom: 4px;
+    font-size: 1.8em;
+    text-decoration: none;
+    color: white;
+}
+nav a:hover {
+    border-bottom: 2px orange solid;
+    font-size:2em;
+    transition: .9s;
+}
+#me, #welcomeText {
+    float:left;
+    width:350px;
+    
+}
+img {
+    width:350px;
+    float:left;
+}
+h1, p, td {
+    font-family: 'Kosugi', sans-serif;
+}
+table {
+    margin: 0px auto;
+}
+#table-header {
+    background-color: #351a00;
+}
+.table-row {
+    background-color: #753900;
+}
+td {
+    padding-right: 10px;
+    font-size: 1.3em;
+}
+td strong {
+    color: orange;
+}
+#otter-logo {
+    width:150px;
+}
+#footerText {
+    size: 50px;
+}
