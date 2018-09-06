@@ -55,3 +55,11 @@ td strong {
 #footerText {
     size: 50px;
 }
+#emoji {
+    font-size: 100px;
+    z-index: -1;
+    
+}
+#lineBreak {
+    width: 50%;
+}

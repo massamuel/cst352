@@ -1,0 +1,44 @@
+header {
+    
+    height: 130px;
+    background-color: #002a4e;
+}
+#welcomeText {
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 70px;
+    color: white;
+}
+
+#images {
+    
+    padding-left: 20px;
+}
+.container {
+    display: inline-table;
+    margin-left: 5px;
+}
+
+#bodyText {
+    font-size: 20px;
+}
+p, h1, h2, h3, h4, a {
+    font-family: 'Roboto', sans-serif;
+}
+a {
+    font-size: 12px;
+}
+a:hover {
+    font-size:1.1em;
+    transition: .5s;
+}
+.dp {
+    margin-left: 5px;
+}
+
+.dp:hover {
+    margin-left: 30px;
+    transition: .9s;
+    
+    
+}

@@ -1,0 +1,14 @@
+.jumbotron {
+    background-color: #edf9ff;
+}
+
+li{
+    border:solid 1px #eee;
+    border-radius: 5px;
+    background-color:#287563;
+    margin-left:5px;
+    
+}
+a{
+    color:#eee;
+}
