@@ -8,7 +8,16 @@ li{
     background-color:#287563;
     margin-left:5px;
     
+    
 }
 a{
     color:#eee;
+}
+ul {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.row {
+    display: flex;
+    justify-content: center;
 }

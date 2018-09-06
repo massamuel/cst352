@@ -1,30 +1,24 @@
+<?php
+    include 'inc/functions.php';
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title> 777 Slot Machine </title>
+        <style type="text/css">
+            @import url("css/styles.css");
+        </style>
     </head>
     <body>
-        <?php
-       
-        for($i = 1; $i <= 3; $i++) {
-            ${"randomValue" . $i} = rand(0,2);
-            displaySymbol(${"randomValue" . $i});
-        }
+        <div id="main">
         
-        function displaySymbol($randomValue) {
-        
-            if($randomValue == 0) {
-                echo '<img src="img/cherry.png" alt="cherry" title ="Cherry" width="70"/>';
-            
-            } else if($randomValue == 1) {
-            echo '<img src="img/seven.png" alt="seven" title ="Seven" width="70"/>';
-        
-            } else {
-                echo '<img src="img/lemon.png" alt="lemon" title ="Lemon" width="70"/>';
-            }
-        }
-        
-        ?>
-        
+            <?php
+                play();
+            ?>
+            <form>
+                <input type="submit" value="Spin!"/>
+            </form>
+        </div>
     </body>
 </html>
