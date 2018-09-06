@@ -39,7 +39,7 @@ function play()
             {
                 case 0: $totalPoints = 1000;
                     echo "<h1>JackPot!</h1>";
-                    echo "<audio><source src='../audio/jackPot.mp3' type='audio/mp3'></audio>";
+                    echo "<audio autoplay><source src='audio/jackPot.mp3' type='audio/mp3'></audio>";
                     break;
                 
                 case 1: $totalPoints = 750;
