@@ -1,8 +1,12 @@
+body {
+    background-image: url("../img/machine.jpeg")
+}
+
 .jumbotron {
     background-color: #edf9ff;
 }
 
-li{
+.link{
     border:solid 1px #eee;
     border-radius: 5px;
     background-color:#287563;
@@ -21,3 +25,10 @@ ul {
     display: flex;
     justify-content: center;
 }
+.footerText {
+   text-align: center;
+}
+td, th {
+    padding: 6px;
+}
+
