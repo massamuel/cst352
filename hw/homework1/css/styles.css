@@ -1,5 +1,7 @@
 body {
-    background-image: url("../img/machine.jpeg")
+    /*background-image: url("../img/machine.jpeg");*/
+    background-color: #13042f;
+    background-size:cover;
 }
 
 .jumbotron {
@@ -30,5 +32,13 @@ ul {
 }
 td, th {
     padding: 6px;
+    color: white;
+}
+.list, h1, h3, h4, p {
+    color: white;
+}
+
+.welcomeText {
+    color:black;
 }
 
