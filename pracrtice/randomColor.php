@@ -5,7 +5,7 @@
         <title> Random Colors </title>
         <style>
             body {
-                text-align:center;
+                /*text-align:center;*/
                 <?php
                 
                     $red = rand(0,255);
