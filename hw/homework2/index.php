@@ -85,6 +85,14 @@
              width: 30%;
              font-size: 50px;
             }
+            .row {
+              display: inline-flex;
+              width: 220%;
+              margin-left: -24%;
+            }
+            .col-lg-4 {
+              width: 33.333333%;
+            }
             
         </style>
         
@@ -93,23 +101,23 @@
     <body>
       
         <h1>Final Possibilities</h1>
+        <button onClick="window.location.reload()">Whos In the Finals</button>
         
-        
-        <div class="jerseys">
+        <div class="row">
           
-            
+          <div class="col-lg-4"> 
               <?php
               
               showTeams();
               ?>
-            
+          </div>  
           
-            
+          <div class="col-lg-4">  
               <?php
               
               showTeams();
               ?>
-            
+           </div> 
 
         </div>
     </body>
