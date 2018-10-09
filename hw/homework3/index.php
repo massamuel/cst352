@@ -10,7 +10,6 @@ $red = $_GET['red'];
 $blue = $_GET['blue'];
 $green = $_GET['green'];
 $alpha = $_GET['alpha'];
-
 $layout = $_GET['layout'];
 
 function displayTable($rows, $cols)
@@ -154,8 +153,8 @@ function displayTable($rows, $cols)
         
         <br/>
         <form method="GET">
-            <input type="text" placeholder="number of rows" name="rows">
-            <input type="text" placeholder="number of rows" name="colls">
+            <input type="text" placeholder="number of rows" name="rows" value="<?=$_GET['rows'] ?>">
+            <input type="text" placeholder="number of rows" name="colls" value="<?=$_GET['rows'] ?>">
             <input type="submit" name="submitbtn" value="submit">
             
             <div id="radioButtons">
@@ -166,7 +165,7 @@ function displayTable($rows, $cols)
                 <label for="noFill"></label><label for="noFill">Don't Fill Color Cells</label>
             </div>
             
-            <select type="text" id="Red" name="red">
+            <select type="text" id="Red" name="red" value="<?=$_GET['red'] ?>">
                 <option value="">Select RGB for red</option>
                 <?php
                 for($i = 0; $i <= 255; $i++)
@@ -176,7 +175,7 @@ function displayTable($rows, $cols)
                 ?>
             </select>
             
-            <select type="text" id="Blue" name="blue">
+            <select type="text" id="Blue" name="blue" value="<?=$_GET['blue'] ?>">
                 <option value="">Select RGB for blue</option>
                 <?php
                 for($i = 0; $i <= 255; $i++)
@@ -186,7 +185,7 @@ function displayTable($rows, $cols)
                 ?>
             </select>
             
-            <select type="text" id="Green" name="green">
+            <select type="text" id="Green" name="green" value="<?=$_GET['green'] ?>">
                 <option value="">Select RGB for green</option>
                 <?php
                 for($i = 0; $i <= 255; $i++)
@@ -196,7 +195,7 @@ function displayTable($rows, $cols)
                 ?>
             </select>
             
-            <select type="text" id="Alpha" name="alpha">
+            <select type="text" id="Alpha" name="alpha" value="<?=$_GET['alpha'] ?>">
                 <option value="">Select brigthness of rgb</option>
                 <?php
                 for($i = 0; $i <= 10; $i++)
@@ -227,7 +226,7 @@ function displayTable($rows, $cols)
         {
             echo "both input boxes to have to be filled with number</>";
         }
-        echo $red . " " . $blue . " " . $green . " " . $alpha . " " .$layout;
+        echo "Values Selected". $red . " " . $blue . " " . $green . " " . $alpha . " " .$layout;
         
         displayTable($numRows, $numCols); 
         
