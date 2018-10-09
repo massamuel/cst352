@@ -225,7 +225,7 @@ function displayTable($rows, $cols)
         
         if(empty($numRows) || empty($numCols))
         {
-            echo "<h2>ERROR: BOTH input boxes to have to be filled with number changing background Color</>";
+            echo "both input boxes to have to be filled with number</>";
         }
         echo $red . " " . $blue . " " . $green . " " . $alpha . " " .$layout;
         

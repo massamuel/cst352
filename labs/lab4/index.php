@@ -31,10 +31,6 @@
         
         shuffle($imageURLs);
     } 
-    // if(empty($_GET['keyword'])) 
-    // {
-    //     echo "keyword not entered nothing displayed";
-    // }
     
 ?>
 
