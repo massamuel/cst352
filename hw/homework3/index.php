@@ -43,6 +43,14 @@ function displayTable($rows, $cols)
     
 }
 
+function checkIfSelected($i, $getMethod)
+{
+    if($i == $getMethod)
+    {
+        return "selected";
+    }
+}
+
 ?>
 
 
@@ -53,18 +61,20 @@ function displayTable($rows, $cols)
            Homework 3.php 
         </title>
         <style type="text/css">
+           
             h1 {
               font-family: sans-serif;
               color: #131313;
-                background-color: #e7e5e4;
-                letter-spacing: .15em;
-                font-size: 50px;
+              background-color: #e7e5e4;
+              letter-spacing: .15em;
+              font-size: 50px;
      
             }
             
             #Red, #Blue, #Green, #Alpha {
                 font-size: 14px;
             }
+            
             #Red {
                border:solid 5px red; 
             }
@@ -76,6 +86,20 @@ function displayTable($rows, $cols)
             }
             #Alpha {
                border:solid 5px black;   
+            }
+            #radioButtons{
+                background: white;
+                border:solid 1px white;
+                background: white;
+                border: solid 1px white;
+                margin-left: 37%;
+                margin-right: 38%;
+                border-radius: 16px;
+                margin-top: 9px;
+                margin-bottom: 9px;
+            }
+            p {
+                background-color: white;
             }
             
             input {
@@ -165,42 +189,42 @@ function displayTable($rows, $cols)
                 <label for="noFill"></label><label for="noFill">Don't Fill Color Cells</label>
             </div>
             
-            <select type="text" id="Red" name="red" value="<?=$_GET['red'] ?>">
+            <select type="text" id="Red" name="red" >
                 <option value="">Select RGB for red</option>
                 <?php
                 for($i = 0; $i <= 255; $i++)
                 {
-                    echo "<option>$i</option>";
+                    echo "<option ".checkIfSelected($i, $_GET['red'])." >$i</option>";
                 }
                 ?>
             </select>
             
-            <select type="text" id="Blue" name="blue" value="<?=$_GET['blue'] ?>">
+            <select type="text" id="Blue" name="blue">
                 <option value="">Select RGB for blue</option>
                 <?php
                 for($i = 0; $i <= 255; $i++)
                 {
-                    echo "<option>$i</option>";
+                    echo "<option ".checkIfSelected($i, $_GET['blue']).">$i</option>";
                 }
                 ?>
             </select>
             
-            <select type="text" id="Green" name="green" value="<?=$_GET['green'] ?>">
+            <select type="text" id="Green" name="green">
                 <option value="">Select RGB for green</option>
                 <?php
                 for($i = 0; $i <= 255; $i++)
                 {
-                    echo "<option>$i</option>";
+                    echo "<option ".checkIfSelected($i, $_GET['green']).">$i</option>";
                 }
                 ?>
             </select>
             
-            <select type="text" id="Alpha" name="alpha" value="<?=$_GET['alpha'] ?>">
+            <select type="text" id="Alpha" name="alpha">
                 <option value="">Select brigthness of rgb</option>
                 <?php
                 for($i = 0; $i <= 10; $i++)
                 {
-                    echo "<option>".$i/10 ."</option>";
+                    echo "<option ".checkIfSelected($i / 10, $_GET['alpha']).">".$i/10 ."</option>";
                 }
                 ?>
             </select>
@@ -210,23 +234,18 @@ function displayTable($rows, $cols)
         </form>
         
         <br/>
-        
-        
-        
+
         <?php
         $numRows = $_GET['rows'];
         $numCols = $_GET['colls'];
         
 
-        
-        
-        
-        
-        if(empty($numRows) || empty($numCols))
+        if(empty($numRows) || empty($numCols) || empty($red) || empty($blue) || empty($green) || empty($alpha))
         {
-            echo "both input boxes to have to be filled with number</>";
+            echo "Error both input boxes and ALL 4 selection Boxes to have to be selected with number";
         }
-        echo "Values Selected". $red . " " . $blue . " " . $green . " " . $alpha . " " .$layout;
+        
+        echo "<h2> Values Selected: $red $blue $green $alpha $layout</h2>";
         
         displayTable($numRows, $numCols); 
         
