@@ -182,10 +182,10 @@ function checkIfSelected($i, $getMethod)
             <input type="submit" name="submitbtn" value="submit">
             
             <div id="radioButtons">
-                <input type="radio" id="fill" name="layout" value="colorFill">
+                <input type="radio" id="fill" name="layout" value="colorFill" <?php ($_GET['layout'] == 'colorFill' ? "checked" : "") ?>>
                 <label for="colorFill"></label><label for="fill">Fill Color Cells</label>
                 
-                <input type="radio" id="noFill" name="layout" value="noColorFill" >
+                <input type="radio" id="noFill" name="layout" value="noColorFill" <?php ($_GET['layout'] == 'noColorFill' ? "checked" : "") ?> >
                 <label for="noFill"></label><label for="noFill">Don't Fill Color Cells</label>
             </div>
             
