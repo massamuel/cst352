@@ -13,6 +13,13 @@ $password = sha1($_POST['password']);
 
 $sql = "SELECT * FROM q_admin WHERE username = '$username' AND password = '$password'";
 
+$sql = "SELECT * FROM q_admin WHERE username = :username AND password = :password";
+
+$nameParameters = array();
+
+$nameParameters[":username"] = $username;
+$nameParameters[":password"] = $password;
+
 
 // echo $sql;
 

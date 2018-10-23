@@ -2,13 +2,6 @@
 
 include '../../sqlConnection.php';
 
-// $host = "localhost"; //cloud9
-// $dbname = "quotes";
-// $username = "sampopl25";
-// $password = "";
-
-// $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-// $dbConn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $dbConn = getConnection("quotes");
 
@@ -49,12 +42,6 @@ function displayRandomQuotes() {
 }
 
 
-// $sql = "SELECT * FROM q_category";
-// $statement = $dbConn->prepare($sql);
-// $statement -> execute();
-// $records = $statement -> fetchAll(PDO::FETCH_ASSOC);
-
-print_r($records);
 ?>
 
 
