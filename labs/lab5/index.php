@@ -18,7 +18,7 @@ function displayAllQuotes() {
     $statement = $dbConn->prepare($sql);
     $statement -> execute();
     //$records = $statement -> fetch();
-    $records = $statement -> fetchAll(PDO::FETCH_ASSOC);
+    $records = $statement -> fetchAll();
     
     
     foreach($records as $record) {
