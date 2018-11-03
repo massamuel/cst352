@@ -92,7 +92,7 @@
               <br/>
               
               <input type="radio" id="lvertical" name="layout" value="Vertical"
-              <?=(($_GET['layout'] == "Vertical")? "checked": "")?> >
+              <?=(($_GET['layout'] == "Vertical")? "checked": "") ?> >
               <label for="Vertical"></label><label for="lvertical">Vertical</label>
             </div>
             

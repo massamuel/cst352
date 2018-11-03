@@ -1,6 +1,6 @@
-<?phpMyAdmin
+<?php
 $alphabet = range("A", "Z");
-$randLetter = rand("A", "Z");
+// $letterIndex = range(1,26);
 
 $findLetter = $_GET['findLetter'];
 $omitLetter = $_GET['omitLetter'];
@@ -8,28 +8,69 @@ $tableSize = $_GET['TableSize'];
 
 function displayTable() {
     
-    global $alphabet, $randLetter, $findLetter, $tableSize, $omitLetter;
+    global $alphabet, $findLetter, $tableSize, $omitLetter;
+    
+    $tableLetter = array();
+    
+    $positionFindLetter = rand(1, ($tableSize * $tableSize));
+    
+    shuffle($alphabet);
+    
+    
+    for($i = 0; $i < ($tableSize * $tableSize); $i++)
+    {
+        $randLetter = rand(1, 26);
+
+        if($i == $positionFindLetter && $positionFindLetter == $randLetter)
+        {
+            $tableLetter[$i] = $findLetter;
+        }
+        
+        while($alphabet[$randLetter] == $omitLetter && $i == $positionFindLetter)
+        {
+            $randLetter = rand(1, 26);
+            
+        }
+        
+        $tableLetter[$i] = $alphabet[$randLetter]; 
+        
+        
+    }
+    
+    
+
+    $color = "blue";
+
     
     echo "<table border=\"1\" cellpadding=\"4\" cellspacing=\"1\">";
-    
+    $index = 0;
     for($i = 0; $i < $tableSize; $i++)
     {
         echo "<tr>";
         
         for($j = 0; $j < $tableSize; $j++)
         {
-            if($randLetter[$j] == $omitLetter)
+            if($tableLetter[$index] <= 'H')
             {
-                continue;
+                $color = "red";
             }
-            echo "<td> <h2>".$randLetter[$j]."</h2> </td>";
+            
+            else if($tableLetter[$index] > 'H' && $tableLetter[$index] < 'P')
+            {
+                $color = "green";
+            }
+            
+            echo "<td> <h2 style='color:$color'>". $tableLetter[$index] ."</h2> </td>";
+            $index++;
         }
         
         echo "</tr>";
     }
-    
     echo "</table>";
-}
+    
+    
+}  
+
 
 
 ?>
@@ -41,22 +82,21 @@ function displayTable() {
             
         </title>
         
-        <style type="text/css">
-            
-        </style>
+
     </head>
     
     <body>
         <h1>Find a Letter</h1>
         <form method="GET">
+            
             <p>Select Letter to find</p>
+            
             <select name="findLetter">
                 <?php
-                for($i = 0; i < 26; $i++)
+                for($i = 0; $i < 26; $i++)
                 {
                     echo "<option>".$alphabet[$i]."</option>";
                 }
-                
                 
                 ?>
             </select>
@@ -70,10 +110,12 @@ function displayTable() {
                 <option value="9">9x9</option>
                 <option value="10">10x10</option>
             </select>
+            <br/>
             
+            <p>Select Letter to Omit</p>
             <select name="omitLetter">
                 <?php
-                for($i = 0; i < 26; $i++)
+                for($i = 0; $i < 26; $i++)
                 {
                     echo "<option>".$alphabet[$i]."</option>";
                 }
@@ -86,6 +128,21 @@ function displayTable() {
         </form>
         
         
+        
+        <?php 
+            if($findLetter == $omitLetter)
+            {
+                echo "<h3>Error letter for omitting and letter to find cannot be same selection.</h3>";
+            }
+            else 
+            {
+                echo "Omitting Letter" . $omitLetter . " Finding letter " . $findLetter;
+                displayTable(); 
+            }
+    
+        
+        
+        ?>
         
     </body>
 </html>

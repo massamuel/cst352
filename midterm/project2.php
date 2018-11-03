@@ -1,6 +1,6 @@
 <?php
 
-include '../../sqlConnection.php';
+include '../sqlConnection.php';
 
 
 $dbConn = getConnection("quotes");

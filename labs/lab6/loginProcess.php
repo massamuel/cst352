@@ -1,5 +1,5 @@
 <?php 
-session_start();
+session_start(); // starts or resumes a sessions
 
 include '../../sqlConnection.php';
 $dbConn = getConnection("quotes");
@@ -21,10 +21,9 @@ $nameParameters[":username"] = $username;
 $nameParameters[":password"] = $password;
 
 
-// echo $sql;
 
 $statement = $dbConn ->prepare($sql);
-$statement->execute();
+$statement->execute($nameParameters);
 $record = $statement->fetch(PDO::FETCH_ASSOC);
 
 if(empty($record)) {
