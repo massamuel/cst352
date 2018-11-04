@@ -20,7 +20,7 @@ function displayAllAuthors() {
     foreach($records as $record) {
         
         echo "<a class='btn btn-primary' role='button' href='updateAuthor.php?authorId=".$record['authorId']."'>update</a> ";
-        echo "<form action='deleteAuthor.php' onsubmit='return confirmDelete(".$record['authorId'].")'>";
+        echo "<form action='deleteAuthor.php' onsubmit='return confirmDelete()'>";
         echo " <input type='hidden' name='authorId' value='".$record['authorId']."'>";
         echo " <button class='btn btn-outline-danger' type ='submit'>Delete</button>";
         echo "</form>";
@@ -40,15 +40,14 @@ function displayAllAuthors() {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" type="text/css">
     
     <script>
-        function confirmDelete(authorId)
+        function confirmDelete()
         {
             
-            var confirmId = prompt('to confirm delete enter author id:' + authorId);
-            if(confirmId == authorId)
+            var confirmId = confirm('Deletion can not be changed. do you wish to continue');
+            if(confirmId)
             {
                 return true;
             }
-            return false;
             
         }
         function openModal()
