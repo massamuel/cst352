@@ -26,8 +26,11 @@ $statement = $dbConn ->prepare($sql);
 $statement->execute($nameParameters);
 $record = $statement->fetch(PDO::FETCH_ASSOC);
 
+$_SESSION['loginError'] = false;
 if(empty($record)) {
-    echo "Error incorrect username or password";
+    $_SESSION['loginError'] = true;
+    header("location: index.php");
+    
 }
 else {
     

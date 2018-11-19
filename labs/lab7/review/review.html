@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JS review</title>
+        <style type="text/css">
+            #reappear {
+                display:none;
+            }
+        
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+        
+    </head>
+    <body>
+    <img id="magicImage" src="img/now_you_see_me.png">
+    
+    <h2 id="magicText">Now you see me...</h2>
+    
+    <from>
+        <button id="doMagic">Do magic</button>
+        <button id = "reappear">Do magic Again</button>
+    </from>
+    
+    
+    <script>
+        
+        $("#reappear").click(function() {
+            $("#reappear").css("display", "none");
+            
+            $("#magicImage").attr('src', "img/now_you_see_me.png");
+            
+            $("#magicText").text("Now you see me again...");
+            
+            $("#doMagic").css("display", "inline");
+        });
+        
+        $("#doMagic").click(function() {
+            $("#doMagic").css("display", "none");
+            
+            $("#magicImage").attr('src', "img/now_you_dont.png");
+            
+            $("#magicText").text("Now you dont...");
+            $("#reappear").css("display", "inline");
+        });
+        
+            // let magic;
+            // let imgMagic;
+            // function doMagic()
+            // {
+                
+            //     imgMagic = document.getElementById("magicImage");
+            //     imgMagic.src = "img/now_you_dont.png";
+            //     magic = document.getElementById("magicText");
+            //     magic.innerHTML = "Now you Dont...";
+            //     // document.getElementById("clicks").innerHTML = "clicks " + clicks;
+                
+            //     document.getElementById("reappear").style.display = "inline";
+            //     document.getElementById("doMagic").style.display = "none";
+                
+            // }
+            // function doMagicAgain()
+            // {
+                
+            //     magic.innerHTML = "Now you see me...";
+            //     imgMagic.src = "img/now_you_see_me.png";
+            //     document.getElementById("reappear").style.display = "none";
+            //     document.getElementById("doMagic").style.display = "inline";
+            // }
+            
+        </script>
+    </body>
+</html>

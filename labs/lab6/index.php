@@ -1,6 +1,7 @@
 <?php
-$username = $_POST['username'];
-$password = $_POST['password'];
+session_start();
+// $username = $_POST['username'];
+// $password = $_POST['password'];
 
 
 
@@ -41,8 +42,15 @@ $password = $_POST['password'];
             <input type="submit" value="login!" />
             
         </form>
-        </div>
         
+        </div>
+        <?php
+        
+        if($_SESSION['loginError'])
+        {
+            echo "<h1>Error invalid username or password</h1>";
+        }
+        ?>
     </body>
     
     
