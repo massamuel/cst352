@@ -59,27 +59,29 @@
                    });//end of ajax call
                });
                
-               $.ajax({
-                       type: "GET",
-                       url: "checkusername.php",
-                       dataType: "json",
-                       data: {"username": $("#user").val() },
-                       success: function(data,status) {
-                           if(data == false)
-                           {
-                               alert("username avalable");
-                           } 
-                           else {
-                               alert("Username already taken");
+               $('#user').change(function() {
+               
+                   $.ajax({
+                           type: "GET",
+                           url: "checkusername.php",
+                           dataType: "json",
+                           data: {"username": $("#user").val() },
+                           success: function(data,status) {
+                               if(data == false)
+                               {
+                                   alert("username avalable");
+                               } 
+                               else {
+                                   alert("Username already taken");
+                               }
+                               
+                           },
+                           complete: function(data,status) {
+                               
                            }
-                           
-                       },
-                       complete: function(data,status) {
-                           
-                       }
-                   });//end of ajax call
+                       });//end of ajax call
               
-              
+               });
           });//document.ready
         
         
