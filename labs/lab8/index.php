@@ -1,4 +1,7 @@
+<?php
+session_start();
 
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -69,10 +72,11 @@
                            success: function(data,status) {
                                if(data == false)
                                {
-                                   alert("username avalable");
+                                   $("#userError").html("username avalable").css("color", "green");
                                } 
                                else {
-                                   alert("Username already taken");
+                                   
+                                   $("#userError").html("Username already taken").css("color", "red");
                                }
                                
                            },
@@ -136,11 +140,11 @@
        <h1> Sign Up Form </h1>
        </div>
     
-        <form onsubmit="return validateForm()" action="success.html">
+        <form onsubmit="return validateForm()" action="sucess.php" >
             <fieldset>
                <legend>Sign Up</legend>
-                First Name:  <input type="text"><br> 
-                Last Name:   <input type="text"><br> 
+                First Name:  <input type="text" name="firstName"><br> 
+                Last Name:   <input type="text" name="lastName"><br> 
                 Email:       <input type="text"><br> 
                 Phone Number:<input type="text"><br><br>
                 Zip Code:    <input id="zipCode" type="text">
@@ -164,13 +168,13 @@
                     
                 </select><br>
                 
-                Desired Username: <input id="user" type="text"><span id="userError" class="error"></span><br>
+                Desired Username: <input id="user" name="username" type="text"><span id="userError" class="error"></span><br>
                 
-                Password: <input id="password" type="password"><span id="passwordError" class="error"></span><br>
+                Password: <input id="password" name="password" type="password"><span id="passwordError" class="error"></span><br>
                 
                 Type Password Again: <input  id="passType" type="password"><span id="retypedError" class="error"></span><br>
                 
-                <input type="submit" value="Sign up!">
+                <input type="submit" name="submitUser" value="Sign up!">
             </fieldset>
         </form>
     

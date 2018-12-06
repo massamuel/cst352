@@ -22,7 +22,7 @@ if(isset($_GET['addAuthorForm']))
     $bio = $_GET['bio'];
     $profession = $_GET['profession'];
     
-    $sql = "INSERT INTO q_author(firstName, lastName, gender, dob, dod, country, profession, picture, bio)
+    $sql = "INSERT INTO q_admin(firstName, lastName, gender, dob, dod, country, profession, picture, bio)
             VALUES(:firstName, :lastName, :gender, :dob, :dod, :country, :profession, :picture, :bio);";
             
     $nameParameters = array();

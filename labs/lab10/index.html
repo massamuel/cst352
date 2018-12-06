@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz</title>
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>   
+    <style type="text/css">
+            body{
+                margin-top:10%;
+                text-align:center;
+            }
+            
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var answer1 = $('#q1').val();
+                var answer2 = $('#q2').val();
+                
+                if(answer1 == 4)
+                {
+                    $("#feedBack").html("right");
+                    
+                }
+                else
+                {
+                    $("#feedBack").html("wrong");
+                    
+                }
+            });
+        </script>
+    </head>
+    
+    <body>
+        
+        <input type="text" name="email" placeholder="Enter Email" size = 35/>
+        <br>
+        <br>
+        
+        What is 2 + 2?
+        <select id="q1" name = Question1 >
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <p id="feedBack"></p>
+        <br>
+        <br>
+        
+        <input id="q2" type="text" name="Question2" placeholder="What Is the Capital of California?" size = 35/>
+        <br>
+        <br>
+        <input type="submit" value/>    
+        
+    </body>
+</html>

@@ -1,9 +1,13 @@
+<?php
+include 'addUser.php';
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Success</title>
     </head>
     <body>
-        <h1>Your account has been created </h1>
+        <h1>Your account has been created</h1>
     </body>
 </html>
