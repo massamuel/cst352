@@ -27,7 +27,7 @@
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+        
         
         
         <title>
@@ -79,9 +79,14 @@
                 
             <form method="GET" >
             <input id="searchGames" class="form-control" name="gameSearch" type="text" placeholder="Search Game Database"/>
+            <p id="noTitle"></p>
             <br>
             <input class="btn btn-primary btn-lg btn-light" id="passSearch" type="button" name="submitbtn" value="submit" >
             
+            </form>
+            
+            <form action="login.php">
+            <input class="btn btn-primary btn-lg btn-light" id="passSearch" type="submit" name="submitbtn" value="Administration" >    
             </form>
             
             <form action="result.php">
@@ -94,10 +99,11 @@
             $(document).ready(function() {
             
                 
-             $("#passSearch").click(function() {
+             $("#passSearch").click(function(event) {
+                 event.preventDefault();
                  var titleName = $("input[name=gameSearch]").val();
                  console.log(titleName);
-                 $('#myModal').modal('show');
+                 
                  $.ajax({
                        type: "GET",
                        url: "api/GetGameInfo.php",
@@ -110,8 +116,14 @@
                           {
                               $("#gameName").html("No game has been found with the title "+ titleName).css("color", "red");
                           }
+                          else if(titleName === "")
+                          {
+                              $("#noTitle").html("Enter a game title").css("color", "green");
+                              
+                          }
                           else 
                           {
+                             $('#myModal').modal('show');
                              $("#gameName").html(data.title).css("color", "black");
                              $("#urlResult").attr("src", data.imgUrl);
                              $("#description").html("<span id='attr'>Description: </span>" + data.description);
@@ -122,6 +134,7 @@
                              $("#genre").html("<span id='attr'>Genre: </span>"+data.genre);
                              $("#releaseYear").html("<span id='attr'>Release Year: </span>"+data.releaseYear);
                              $("#price").html("<span id='attr'>Price: </span>$"+data.price);
+                             $("#noTitle").html("");
                           }
                            
                             console.log(data);

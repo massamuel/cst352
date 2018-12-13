@@ -4,7 +4,7 @@ session_start();  //starts or resumes a session
 //verifies that username and password are valid
 
  include 'sql/vGconnection.php';
- $dbConn = getConnection("vidBox");
+ $dbConn = dbConnection("c9");
 
  $username = $_POST['username'];
  $password = sha1($_POST['password']);
@@ -42,7 +42,7 @@ session_start();  //starts or resumes a session
 
      $_SESSION['adminName'] = $record['firstName'] . " " . $record['lastName'];
      
-     header("location: index .php"); //redirects to another program.
+     header("location: main.php"); //redirects to another program.
      
  }
  
@@ -51,6 +51,6 @@ session_start();  //starts or resumes a session
  
 
 ?>
-  
+
   
 
