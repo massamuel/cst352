@@ -40,7 +40,7 @@ if(isset($_GET['addGameForm']))
     $statement = $dbConn->prepare($sql);
     $statement->execute($nameParameters);
     
-    
+    echo "game was added";
 }
 
 

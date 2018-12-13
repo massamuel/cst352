@@ -18,4 +18,5 @@ $statement->execute();
 
 header("Location: main.php");
 
+echo "game was deleted";
 ?>
