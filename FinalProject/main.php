@@ -27,7 +27,7 @@ function displayAllGames(){
         echo "<a   class='btn btn-primary' role='button' href='updateGame.php?gameId=".$game['gameId']."'>update</a> ";
         //echo "[<a href='deleteAuthor.php'>delete</a>] ";
         echo "<form action='deleteGame.php' onsubmit='return confirmDelete()' >";
-        echo "  <input type='hidden' name='gameId' value='" . $game['gameId']."' >";
+        echo "  <input type='hidden' name='gameId' value='" . $game['gameId']. "' >";
         echo "  <button class='btn btn-outline-danger' type='submit'>Delete</button>";
         echo "</form> ";
         echo "<p> " . $game['title'] . "  " . $game['genre'] . "</p>  ";

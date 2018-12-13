@@ -7,16 +7,15 @@ if (!isset($_SESSION['adminName'])) {
     
 }
 
- include 'sql/vGconnection.php';
- $dbConn = dbConnection("c9");
+include 'sql/vGconnection.php';
+$dbConn = dbConnection("c9");
 
-$sql = "DELETE FROM videoGames WHERE gameId = " . $_GET['gameId'];
-
+$sql = "DELETE FROM videoGames WHERE gameId = ".$_GET['gameId'];
 
 $statement = $dbConn->prepare($sql);
 $statement->execute();
 
 
-header("Location: main.php");
+header("location: main.php");
 
 ?>
