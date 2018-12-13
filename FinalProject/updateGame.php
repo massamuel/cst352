@@ -14,7 +14,7 @@ $dbConn = dbConnection("c9");
 function getGameInfo() {
     global $dbConn;
     
-    $sql = "SELECT * FROM `videoGames` WHERE `gameId` = " . $_GET['gameId'];
+    $sql = "SELECT * FROM videoGames WHERE `gameId` = " . $_GET['gameId'];
     
     $stmt = $dbConn->prepare($sql);
     $stmt->execute();
@@ -27,7 +27,7 @@ function getGameInfo() {
 
 if (isset($_GET['updateGameForm'])) { // User submitted the form
     
-    $sql = "UPDATE `videoGames` 
+    $sql = "UPDATE videoGames 
             SET   title = :title,
                   genre  = :genre,
                   developer    = :developer,
@@ -37,7 +37,8 @@ if (isset($_GET['updateGameForm'])) { // User submitted the form
                   price   = :price
                   
                   
-              WHERE gameId = " . $_GET['gameId'];
+                WHERE gameId = " . $_GET['gameId'];
+    
     $np = array();
     $np[":title"] = $_GET['title'];
     $np[":genre"]  = $_GET['genre'];

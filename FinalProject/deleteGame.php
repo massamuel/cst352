@@ -16,6 +16,6 @@ $statement = $dbConn->prepare($sql);
 $statement->execute();
 
 
-header("location: main.php");
+header("Location: main.php");
 
 ?>

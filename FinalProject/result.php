@@ -22,7 +22,7 @@ if(isset($_GET['addGameForm']))
     
     $description = $_GET['gameDescription'];
     
-    $sql = "INSERT INTO videoGames2(gameId, title, genre, developer, imgUrl, releaseYear, description, consoleId, sellerId, price)
+    $sql = "INSERT INTO videoGames(gameId, title, genre, developer, imgUrl, releaseYear, description, consoleId, sellerId, price)
             VALUES(NULL, :title, :genre, :developer, :imgUrl, :releaseYear, :description, :consoleId, :sellerId, :price);";
             
     $nameParameters = array();
