@@ -2,7 +2,7 @@
 include "../sql/vGconnection.php";
 $dbConn = dbConnection("vidBox");
 
-$search = $_GET['gameSearch'];
+$search = $_GET['gameTitle'];
 
 function showGame()
 {

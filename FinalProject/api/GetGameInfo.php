@@ -1,18 +1,23 @@
 <?php
 
-session_start();
+
+include "../sql/vGconnection.php";
+$dbConn = dbConnection("vidBox");
+
 
 if(!isset($_GET['submitBtn']))
 {
-    include 'sql/VGconnection.php';
-    $dbConn = dbConnection('videogames');
+    global $dbConn; 
+    global $search;
     function getGameInfo()
     {
-        $gameTitle = $_GET['gameSearch'];
+        $search = $_GET['gameSearch'];
         global $dbConn;
-        $sql = "SELECT * FROM videogames NATURAL JOIN sellerRetailer,gameConsole WHERE title = $gameTitle";
+        $sql = "SELECT * FROM `videoGames` 
+                NATURAL join sellerInfo 
+                NATURAL join consoleInfo WHERE title LIKE :search";
         $statement = $dbConn->prepare($sql);
-        $statement->execute();
+        $statement->execute(array(":search" => '%'. $search .'%'));
         $gameInfo = $statement->fetch();
         return $gameInfo;
         

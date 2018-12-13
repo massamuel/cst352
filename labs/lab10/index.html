@@ -11,50 +11,97 @@
     <style type="text/css">
             body{
                 margin-top:10%;
-                text-align:center;
+                
+                margin-left: 35%;
+                text-align: left;
             }
             
         </style>
         <script type="text/javascript">
             $(document).ready(function() {
-                var answer1 = $('#q1').val();
-                var answer2 = $('#q2').val();
                 
-                if(answer1 == 4)
-                {
-                    $("#feedBack").html("right");
+                $("#btnSubmit").click(function() {
+                    var answer1 = $('#q1').val();
+                    var answer2 = $('#q2').val().toLowerCase();
+                    var score = 0;
                     
-                }
-                else
-                {
-                    $("#feedBack").html("wrong");
+                    if(answer1 == 4)
+                    {
+                        $("#feedBack").html("right").css("color","green");
+                        score += 5;
+                        
+                    }
+                    else
+                    {
+                        $("#feedBack").html("wrong").css("color","red");
+                        
+                    }
+                    if(answer2 == "sacramento")
+                    {
+                        $("#feedBack2").html("right").css("color","green");
+                        score += 5;
+                    }
+                    else
+                    {
+                        $("#feedBack2").html("wrong").css("color","red");
+                    }
                     
-                }
+                    $("#score").html("Score " + score);
+                    
+                    $.ajax({
+            
+                        type: "GET",
+                        url: "getQuizScore.php",
+                        dataType: "json",
+                        data: { "email":$("#emailAddress").val(),
+                                "score": score },
+                        success: function(data,status) {
+                           //alert(data.score + " " + data.attempts);
+                           $("#prevScore").html("Your Previous Score was: " + data.score);
+                           $("#totalAttempts").html("total attempts: " + (parseInt(data.attempts) + 1));
+                        
+                        },
+                        complete: function(data,status) { //optional, used for debugging purposes
+                           //alert(status);
+                        }
+                    
+                    });//ajax
+                });
+                
             });
         </script>
     </head>
     
     <body>
         
-        <input type="text" name="email" placeholder="Enter Email" size = 35/>
+        Enter Email<input type="text" name="email"  size = 35/>
+        <span id="EmailError"></span>
         <br>
         <br>
         
         What is 2 + 2?
-        <select id="q1" name = Question1 >
+        <select id="q1" name="Question1" >
             <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
         </select>
-        <p id="feedBack"></p>
+        <span id="feedBack"></span>
         <br>
         <br>
+        What is the capital of California?
+        <input id="q2" type="text" name="Question2" size = 35/>
+        <span id="feedBack2"></span>
+        <br>
+        <br>
+        <h3 id="score"></h3>
         
-        <input id="q2" type="text" name="Question2" placeholder="What Is the Capital of California?" size = 35/>
+        <h3 id="prevScore"></h3>
+        
+        <h3 id="totalAttempts"></h3>
         <br>
         <br>
-        <input type="submit" value/>    
+        <input id="btnSubmit" type="button" value="submit" />    
         
     </body>
 </html>

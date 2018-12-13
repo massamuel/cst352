@@ -56,11 +56,7 @@ function displayAllPets() {
                     dataType: "json",
                     data: { "id": id },
                     success: function(data,status) {
-                        // console.log(data);
-                        // $('#myModal').on('shown.bs.modal', function () {
-                        //     $('.modal-body').append(data.name);
-                            
-                        // });
+                        
                     
                     $("#petName").html(data.name);
                     $("#petDescription").html(data.description);

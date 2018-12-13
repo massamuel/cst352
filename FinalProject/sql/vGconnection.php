@@ -2,7 +2,7 @@
 
 function dbConnection($dbname) {
     $host = "localhost"; //cloud9
-    //$dbname = "videogames";
+    //$dbname = "vidBox";
     $username = "sampopl25";
     $password = "";
     
