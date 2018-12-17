@@ -1,34 +1,29 @@
 <?php
-include "../../sqlConnection.php";
+include '../../sqlConnection.php';
 $dbConn = getConnection("c9");
 
-$email = $_GET['email'];
-
-$score = $_GET['score'];
-
-
-$sql = "SELECT * FROM lab_10quiz WHERE email = ':email'";
-$namedPerameters = array();
-$namedPerameters[":email"] = $_GET['email'];
+$sql= "SELECT * FROM `lab10_quiz` WHERE `email` = :email";
+$namedParameters = array();
+$namedParameters[":email"] = $_GET['email'];
 
 $stmt = $dbConn->prepare($sql);
-$stmt->execute($namedPerameters);
-
-$record = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if(empty($record))
-{
-    $sql = "INSERT INTO lab_10quiz (userId, email, score, attempts) VALUES(NULL, :email, :score, 1)";
-    $namedPerameters[":score"] = $score;
+ $stmt->execute($namedParameters);
+ $record = $stmt->fetch(PDO::FETCH_ASSOC);
+ 
+ if(empty($record)){   //Email doesn't exist in the database
+  $sql = "INSERT INTO `lab10_quiz` (`userId`, `email`, `score`, `attempts`) VALUES (NULL, :email , :score, 1)";
+  $namedParameters[':score'] = $_GET['score'];
+  $stmt = $dbConn->prepare($sql);
+  $stmt->execute($namedParameters);
+ }
+ else //email exists in database
+ {
+    //  Update lab10_quiz set score = 5, attempts = attempts + 1where email = "sam@csumb.edu"
+    $sql = "UPDATE lab10_quiz SET score = :score, attempts = attempts + 1 WHERE email = :email";
+    $namedParameters[':score'] = $_GET['score'];
     $stmt = $dbConn->prepare($sql);
-    $stmt->execute($namedPerameters);
-}
-
-echo json_encode($record);
-
-
-
-// $sql = "INSERT INTO lab_10quiz (userId, email, score, attempts) VALUES(NULL, )";
-// INSERT INTO `lab10_quiz` (`userId`, `email`, `score`, `attempts`) VALUES (NULL, 'jakePaul@youtube.com', '0', '1');
-
+    $stmt->execute($namedParameters);
+ }
+ //print_r($record);
+ echo json_encode($record);
 ?>
